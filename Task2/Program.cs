@@ -28,30 +28,22 @@ int ColculationOfTheAckermannFunccion(int n, int m)
     }
 }
 
-int CheckNumberForNegativity(string str)
+Console.WriteLine("Введите положительное число M: ");
+if (int.TryParse(Console.ReadLine(), out int M) && M >= 0)
 {
-    Console.WriteLine($"Введите натуральное число: {str}");
-    return Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите положительное число N: ");
+    if (int.TryParse(Console.ReadLine(), out int N) && N >= 0)
+    {
+        Console.Write($"M = {M}; N = {N} ->A (m,n) = {ColculationOfTheAckermannFunccion(N, M)}");
+       ColculationOfTheAckermannFunccion(N, M);
+        Console.WriteLine();
+    }
+    else
+    {
+        Console.WriteLine("Некоректный ввод, число M отрицательное.");
+    }
 }
-
-int M = CheckNumberForNegativity("M");
-while (M < 0)
-{
-    Console.WriteLine("Некоректный ввод, число M отрицательное.");
-    M = CheckNumberForNegativity("M");
-}
-
-int N = CheckNumberForNegativity("N");
-while (N < 0)
+else
 {
     Console.WriteLine("Некоректный ввод, число N отрицательное.");
-    N = CheckNumberForNegativity("N");
 }
-
-Console.WriteLine();
-Console.Write($"M = {M}; N = {N} -> A(m,n) = {ColculationOfTheAckermannFunccion(N, M)} ");
-Console.WriteLine();
-
-
-
-
